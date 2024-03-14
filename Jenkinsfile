@@ -18,5 +18,10 @@ pipeline {
                         sh 'cp target/declarative.war /home/remote/Documents/software/apache-tomcat-9.0.86/webapps'
                       }
                                 }
+            stage('Email notify') {
+                steps {
+                        mail bcc: '', body: 'Hello, This is an email from jenkins pipeline.', cc: '', from: '', replyTo: '', subject: 'EmailJenkinsPipeline', to: 'sandeepshrinath91@gmail.com'
+                      }
+                                   }
                 }
           }
